@@ -19,17 +19,19 @@ for(var i = 0; i <= pacientes.length; i++) {
     /*
         Validação
     */
-    var pesoValido = true; 
-    var alturaValida = true;
+    var pesoValido      = true; 
+    var alturaValida    = true;
 
     if(peso < 0 || peso >= 750) {
         pesoValido = false;
         /* texto de erro */
         tdImc.textContent = 'Peso inválido';
+        paciente.classList.add('campo-invalido');
     } else if (altura <= 0.50 || altura >= 3.10) {
         alturaValida = false;
         /* texto de erro */
         tdImc.textContent = 'Altura inválida';
+        paciente.classList.add('.campo-invalido');
     }
 
     if( pesoValido && alturaValida) {
