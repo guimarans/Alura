@@ -129,7 +129,8 @@ button[disabled=disabled], button:disabled {
 }
 
 .campo-invalido{
-	border-color: red;
+	color: red;
+	line-height: 1.5;
 }
 
 .paciente-invalido{
