@@ -82,7 +82,6 @@ label{
 	width: 100%;
 	border: 1px solid #ccc;
 	padding: .7em;
-	width: 100%;
 }
 
 .campo-medio{
@@ -90,8 +89,9 @@ label{
 	padding-right: .5em;
 }
 
+
 .grupo{
-	width: 32%;
+	width: calc(100% / 3 - 3px);
 	display: inline-block;
 	padding: 10px 0px;
 }
@@ -107,7 +107,6 @@ button{
 	color: #fff;
 	background-color:#0c8cd3;
 	border-color: #04324c;
-	width: 20%;
     display: block;
     clear: both;
     margin: 10px 0px;
@@ -130,5 +129,9 @@ button[disabled=disabled], button:disabled {
 }
 
 .campo-invalido{
+	border-color: red;
+}
+
+.paciente-invalido{
 	background-color: lightcoral;
 }
