@@ -57,4 +57,34 @@ botaoAdd.addEventListener('click', function(event) {
     */
     event.preventDefault();
 
+    // Pega todos os campos do form
+    var form = document.querySelector("#form-adiciona");
+
+    //Pega valor dos inputs
+    var nome = form.nome.value;
+    var peso = form.peso.value;
+    var altura = form.altura.value;
+    var gordura = form.gordura.value;
+    
+    //Cria linha
+    var pacienteTr = document.createElement("tr");
+    
+    //Cria colunas e adiciona conteudo
+    var nomeTd = document.createElement("td").textContent = nome;
+    var pesoTd = document.createElement("td").textContent = peso;
+    var alturaTd = document.createElement("td").textContent = altura;
+    var gorduraTd = document.createElement("td").textContent = gordura;
+    var imcTd = document.createElement("td");
+    
+    // adiciona coluna na linha
+    pacienteTr.appendChild(nomeTd);
+    pacienteTr.appendChild(pesoTd);
+    pacienteTr.appendChild(alturaTd);
+    pacienteTr.appendChild(gorduraTd);
+
+    // adiciona na tabela
+    var tabela = document.querySelector("#tabela-pacientes");
+
+    tabela.appendChild(pacienteTr);
+
 })
