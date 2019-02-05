@@ -1,0 +1,155 @@
+1 - o que é http?
+
+HTTP Fundamento da web
+
+OBS.: Curso independente de plataforma. 
+
+
+Quando se diz HTTP já pensamos na internet já que é a localidade onde mais conseguimos ver esse protocolo
+
+Client Server
+
+Regras de comunicação precisam ser bem definidas já que os dois lados precisam entender as solicitações
+
+HTTP nada mais é que um conjunto de regras 
+
+RFC2616 é onde fica a documentação com as informações mais atuais
+
+
+HTTP - hipertext transfer protocol
+
+No caso dos browser eles representam o cliente, e quem fornece o conteudo é o servidor. 
+
+O papel entre o cliente e o servidor é definir regras de comunicação.
+Ele é responsavel por definir a forma de como os dados são trafegados na rede atráves das regras.
+
+Modelo P2P - Peer To Peer.
+Usado para torrents
+
+O modelo cliente servidor não é o único modelo de comunicação na rede.
+Client server tenta centralizar o trabalho do lado do servidor o que pode gerar gargalos. o modelo p2p é uma divisão entre cliente servidor, cada cliente tbm é servidor e vice-versa.
+
+O que você aprendeu nesse capítulo?
+    A arquitetura Cliente-Servidor
+    Um protocolo é um conjunto de regras
+    HTTP é um protocolo que define as regras de comunicação entre cliente e servidor na internet.
+    HTTP é o protocolo mais importante da Internet
+
+2 - A web segura - HTTPS
+
+Todos os dados enviados são trasnmitidos em texto puro, inclusive dados sensiveis, como login e senha.
+Com a ferramenta de desenvolvedor na aba network é possivel acessar essa informação.
+ EX.: 
+    Site do alura > digita email e senha > clica na aba network tab headers opção form data. 
+
+Quando se pede informação existe vários intermediários. 
+Para cenários que exigem mais segurança temos o https - segurança/criptografada que antes era o SSL e posteriormente passou a ser tbm o TLS. É muito comum ver as duas siglas juntas SSL/TLS por ser a mesma questão de segurança. 
+
+Temos dois termos:
+
+1. HTTP: hyperText transfer protocol
+2. SSL/TLS: secure sockets layer / transport layer security
+
+O HTTPS usa criptografia baseada em chaves publicas e privadas é preciso garantir a identidade de quem possui essas chaves e isso é feito a partir de um certificado digital, um certificado digital é utilizado para identificar determinada entidade e ainda é utilizada para gerar as chaves de criptografia. 
+
+É necessário uma autoridade certificadora, que é um orgão ou entidade confiável que garanta a identidade e a validade do certificado. 
+
+Os navegadores em posse da chave pública criptografam as informações e as enviam para o servidor que as descriptografa com a chave privada. Apensa a chave privada descriptografa as informações criptografadas com a pública, e deve-se manter a chave privada segura. 
+
+O que aprendemos nesse capítulo?
+    Só com HTTPS a web é segura.
+    HTTPS significa usar um certificado digital no servidor.
+    O certificado prova a identidade e tem validade
+    O certificado possui uma chave publica.
+    A chave é utilizada pelo navegador para criptografar os dados.
+
+
+Certificado digital
+
+quando precisamos informar nossos dados e ter a certeza que este servidor representa a entidade em questão. Um certificado digital prova uma identidade para um site, onde temos informações sobre o seu domínio e a data de expiração desse certificado. Além disso, guarda a chave pública que é utilizada para criptografar (cifrar) os dados que são trafegados en tre cliente e servidor.
+
+As chaves estão ligadas matematicamente. isso garante que os dados cifrados pelo navegador(chave pública) só podem ser lidos pelo servidos (chave privada). Por ser chaves diferentes, esse método de criptografia é lenta e é chamada de criptografia assimétrica. 
+
+Criptografia simétrica, usa a mesma chave é muito mais rápida, mas não tão segura. Como a chave é espelhada qq um que tenha posse dessa chave, pode decifrar a comunicação.
+
+O HTTPS usa ambos os métodos de criptografia, assimétrica e simétrica.
+Começa com criptografia assimétrica para depois mudar para criptografia simétrica. Essa chave será gerada no início da comunicação e reaproveitada nas requisições seguintes. 
+
+O que você aprendeu nesse capítulo?
+    Por padrão, os dados são trafegados como texto puro na web.
+    Apenas com HTTPS a Web é segura
+    O protocolo HTTPS nada mais é do que o protocolo HTTP mais uma camada adicional de segurança, a TLS/SSL
+    O tipo de criptografia de chave pública/chave privada
+    O que são os certificados digitais
+    Certificados possuem identidade e validade
+    As chaves públicas estão no certificado, a chave privada fica apenas no servidor
+    O que é uma autoridade certificadora
+    O navegador utiliza a chave pública para criptografar os dados
+
+3 - Endereços sob seu domínio.
+ 
+ Analisando o domínio
+
+Sabemos que o endereço começa com http ou https apos o protocolo vem :// seguido pelo www que representa world wide web e o nome do site que é o dominio
+
+https://www.alura.com.br
+
+Top level domain está na raiz do dominio.
+EX 
+com | br | org | net | edu | ... 
+
+Depois vem o COM que representa comercial.
+Ex com | gov | mil | edu | ...
+
+e então vem o nome, o COM e o ALURA são subdominios.
+
+o WWW é um sobdominio opcional, alura.com.br ou www.alura.com.br mostram a mesma página.
+
+O www é mais um legado popular apesar de não ser necessário.
+
+SUBDOMÍNIOS
+
+Representam sessões especificas dentro de um site. EX.: drive.google.com mail.google.com.
+Percaba que eles apontam para páginas diferentes dentro do mesmo domínio.
+
+ENDEREÇOS IP'S 
+
+O nome dos dominios é organizados em um hierarquia que foi criada para organizar os sites e para ser fácil de ser lembrado. A internet funcionaria sem esses dominios. As maquinas usam os ip's para se identificar.
+
+Sendo assim todos os sites possuem seus proprios ip's.
+
+obs.: ips são mais importantes para quem trabalha com rede dev não precisa mexer com isso. 
+obs.: Ip pode mudar dependendo do servidor concreto onde o Google foi instalado
+
+DNS 
+
+quando realizamos uma requisição essa URL é transformada em número pelo DNS (domain name system).
+
+Esse serviço age como um banco de dados de dominio. Quando fazemos a requisição para alura.com.br o DNS transforma em um IP e a requisição prossegue.
+
+Podemos escolher um servidor DNS de prefêrencia na internet. Um bastante usado é o da propria google: https://developers.google.com/speed/public-dns/
+
+
+PORTAS
+
+quando usamos a url abrimos uma conexão com o servidor que roda na internet. para estabelecer a conexão de rede precisamos do ip. Quando chegamos na casa precisamos saber qual porta utilizar para o protocolo http!
+
+A porta para http é 80 e como o navegador ja sabe essa porta padrão podemos omiti-lá. 
+
+se tentarmos usar a porta 81 não sera feita a conexão e dara tempo esgotado. Igualmente o https que a porta padrão é 443
+
+RECURSOS
+é algo contreto que queremos acessar ele vem apos o nome e o dominio. O importante é que cada recurso tenha o seu nome único.
+
+URL
+todos os endereços na web seguem esse mesmo padrão: protocolo://dominio:porta/caminho/recurso.Esse padrão foi batizado de UNIFORM RESOURCE LOCATOR, abreviado como URL. Então, as URLs são os endereços na web!
+
+O que aprendemos nesse capítulo?
+    URL são os endereços da Web
+    Uma URL começa com o protocolo (por exemplo https://) seguido pelo domínio (www.alura.com.br)
+    Depois do domínio pode vir a porta, se não for definida é utilizada a porta padrão desse protocolo
+    Após o domínio:porta, é especificado o caminho para um recurso (/course/introducao-html-css)
+    Um recurso é algo concreto na aplicação que queremos acessar
+
+4 - O cliente pede e o servidor responde 
+
