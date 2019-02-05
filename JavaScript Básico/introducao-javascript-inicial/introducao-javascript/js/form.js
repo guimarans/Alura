@@ -5,23 +5,16 @@ botaoAdicionar.addEventListener("click", function(event) {
     var form = document.querySelector("#form-adiciona");
     // Extraindo informações do paciente do form
     var paciente = obtemPacienteDoFormulario(form);
-    // Cria linha do paciente
-    var pacienteTr = montaTr(paciente);
-
-    //Valida inputs do form
     
+    //Valida inputs do form
     var erros = validaPaciente(paciente);
-    console.log(erros);
     if(erros.length > 0){
         exibeMensagensDeErro(erros);
         return;
     }
 
-    // Adicionando o paciente na tabela
-    var tabela = document.querySelector("#tabela-pacientes");
-
-    tabela.appendChild(pacienteTr);
-
+    adicionaPacienteNaTabela(paciente);
+    
     form.reset();
 
     // Limpa a lista após adicionar o Paciente
@@ -103,4 +96,10 @@ function validaPaciente(paciente) {
     }
 
     return erros;
+}
+
+function adicionaPacienteNaTabela(paciente) {
+    var pacienteTr = montaTr(paciente);
+    var tabela = document.querySelector("#tabela-pacientes");
+    tabela.appendChild(pacienteTr);
 }
